@@ -9,7 +9,7 @@ newgrp docker
 curl -SL https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 mkdir /home/ec2-user/bookstore
-FOLDER="https://raw.githubusercontent.com/yavuz69/Docker-bookstore-project/main"
+FOLDER="https://raw.githubusercontent.com/yavuz69/my-devops-projects/main/docker/dockerization-bookstore-api-on-python-flask-mysql"
 curl -s --create-dirs -o "/home/ec2-user/bookstore/Dockerfile" -L "$FOLDER"/Dockerfile
 curl -s --create-dirs -o "/home/ec2-user/bookstore/docker-compose.yml" -L "$FOLDER"/docker-compose.yml
 curl -s --create-dirs -o "/home/ec2-user/bookstore/requirements.txt" -L "$FOLDER"/requirements.txt

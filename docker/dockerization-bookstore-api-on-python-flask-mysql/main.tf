@@ -37,7 +37,7 @@ resource "github_repository_file" "myfiles" {
   for_each = toset(var.files)
   content = file(each.value)
   file = each.value
-  repository = data.github_repository.my-repo.name
+  repository = github_repository.my-repo.name
   branch = "main"
   commit_message = "managed by terraform"
   overwrite_on_create = true

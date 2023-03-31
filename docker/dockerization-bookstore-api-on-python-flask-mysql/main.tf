@@ -22,6 +22,10 @@ provider "github" {
 
  
 
+data "aws_vpc" "default" {
+  default = true
+}
+
 resource "github_repository" "my-repo" {
   name = "Docker-bookstore-project"
   auto_init = true
@@ -32,7 +36,6 @@ resource "github_branch_default" "main" {
   repository = github_repository.my-repo.name
 }
 
-
 resource "github_repository_file" "myfiles" {
   for_each = toset(var.files)
   content = file(each.value)
@@ -41,11 +44,6 @@ resource "github_repository_file" "myfiles" {
   branch = "main"
   commit_message = "managed by terraform"
   overwrite_on_create = true
-}
-
-
-data "aws_vpc" "default" {
-  default = true
 }
 
 resource "aws_instance" "bookstore" {
@@ -91,7 +89,7 @@ data "aws_ami" "amazon-linux-2" {
 }
 
 variable "git-token" {
-  default     = "your gitbub token"
+  default     = "enter your token"
 }
 
 

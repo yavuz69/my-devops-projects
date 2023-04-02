@@ -1,4 +1,5 @@
 #! /bin/bash
+
 yum update -y
 yum install httpd -y
 FOLDER="https://raw.githubusercontent.com/yavuz69/my-projects/main/aws/projects/Project-101-kittens-carousel-static-website-ec2/static-web"

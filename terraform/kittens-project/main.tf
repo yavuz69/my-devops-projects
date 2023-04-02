@@ -15,13 +15,14 @@ provider "aws" {
 }
 
 resource "aws_instance" "tf-ec2" {
-  ami           = data.aws_ami.amazon-linux-2.id
+  ami      = data.aws_ami.amazon-linux-2.id
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.demo-sg.id]
   tags = {
     "Name" = "created-by-terraform"
   }
- 
+
+
 data "aws_ami" "amazon-linux-2" {
   owners = ["amazon"]
   most_recent = true

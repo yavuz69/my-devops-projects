@@ -9,6 +9,7 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
+
 resource "aws_s3_bucket" "kittens" {
   bucket = var.s3_bucket_name
   force_destroy = true
@@ -46,7 +47,6 @@ resource "aws_s3_bucket_website_configuration" "kittens_website" {
   error_document {
     key = "error.html"
   }
-
 }
 
 resource "aws_s3_bucket_public_access_block" "kittens_public" {

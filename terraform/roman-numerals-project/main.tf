@@ -12,8 +12,8 @@ provider "aws" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.amazon-linux-2
-  instance_type = "t2.micro".id
+  ami           = data.aws_ami.amazon-linux-2.id
+  instance_type = "t2.micro"
   security_groups = ["allow_tls"]
   user_data = file("${path.module}/userdata.sh")
   key_name = "first-key"
